@@ -6,6 +6,8 @@
 - Travailler uniquement sur votre branche
 - Si des bonnes idées émerges, on fusionnera la branche main avec votre branche
 - Quelques commandes par rapport à la gestion des branches :
+- Fichiers à modifier dans le main :
+  - README
 
 ```bash
 git branch branche_Prénom # créer une branche
