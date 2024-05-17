@@ -118,7 +118,8 @@ class Train:
             while wagon.suivant is not None:
                 wagon = wagon.suivant
             wagon.suivant = nouveau
-        self.nb_wagons = ...
+        self.nb_wagons+=1
+
 
     def supprime_wagon_de(self, contenu):
         """Supprime le premier wagon de {contenu}
@@ -128,18 +129,18 @@ class Train:
         # On parcourt le train afin de trouver le contenu
         precedent = None
         wagon = self.premier
-        while wagon is not ... and wagon.contenu != ...:
+        while wagon is not None and wagon.contenu != contenu:
             precedent = wagon
-            wagon = wagon....
+            wagon = wagon.suivant
 
-        if wagon is ...:  # on a parcouru tout le train sans trouver le contenu
-            return ...
-        if precedent is ...:  # le wagon supprimé est le premier du train
-            self.premier = wagon....
+        if wagon is None:  # on a parcouru tout le train sans trouver le contenu
+            return False
+        if precedent is None:  # le wagon supprimé est le premier du train
+            self.premier = wagon.suivant
         else:  # le wagon supprimé n'est pas le premier
-            precedent.... = wagon....
-        self.nb_wagons -= ...
-        return ...
+            precedent.suivant = wagon.suivant
+        self.nb_wagons -= 1
+        return True
 
     def __repr__(self):
         "Affichage dans la console"
@@ -153,3 +154,20 @@ class Train:
     def __str__(self):
         "Conversion en string"
         return self.__repr__()
+train = Train()
+w1 = Wagon("blé")
+train.ajoute_wagon(w1)
+w2 = Wagon("riz")
+train.ajoute_wagon(w2)
+train.ajoute_wagon(Wagon("sable"))
+assert str(train) == 'Locomotive - Wagon de blé - Wagon de riz - Wagon de sable'
+assert train.est_vide() is False
+assert train.donne_nb_wagons() == 3
+assert train.transporte_du('blé') is True
+assert train.transporte_du('matériel') is False
+assert train.supprime_wagon_de('riz') is True
+assert str(train) == 'Locomotive - Wagon de blé - Wagon de sable'
+train.ajoute_wagon(w2)
+assert train.supprime_wagon_de('blé') is True
+assert str(train) == 'Locomotive - Wagon de sable - Wagon de riz'
+assert train.supprime_wagon_de('blé') is False
