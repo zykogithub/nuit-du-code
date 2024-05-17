@@ -16,6 +16,7 @@ git push --set-upstream origin branche_Prénom # pour créer un dépot distant d
 
 #pour fusionner votre branche avec la branche principal
 git switch branche_Prénom 
-git merge main 
+git merge main
+git push
 
 ```
