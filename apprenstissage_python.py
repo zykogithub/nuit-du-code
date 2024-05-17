@@ -1,15 +1,20 @@
-chaine = "1, 2, 3, 5, 9, 12, -6, 3, 2, 101, 0, 5"
-def lire_csv(input_csv : str) -> list[list] :
-    retour = [[],[]]
-    for element in input_csv :
-        if element==',' or element==' '  :
-            continue
-        else :
-            conversion = int(element)
-            if len(retour[0])<0:
-                retour[0].append(conversion)
-            else:
-                retour[1].append(conversion)
-    return retour
-lire_csv(chaine)
+class Fruit :
+    def __init__(self) -> None:
+        self.__mass : int = 100
+    def __str__(self) -> str:
+        return f"classe mère : {self.__mass}\n"
+    def get_masse (self) :
+        return self.__mass
+    def __call__(self, *args: Any, **kwds: Any) -> Any:
+        pass
+class Citron(Fruit) :
+    def __init__(self) -> None:
+        super().__init__()
+        self.__mass = 200
+    def __str__(self) -> str:
+        return super().__str__() + f"classe fille : {self.__mass}"
+if __name__ == "__main__" :
+    citron1 = Citron()
+    print(citron1)
+    print(citron1.__dict__)
         
