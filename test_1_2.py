@@ -27,16 +27,16 @@ if 6<= monentier <= 10 :
     
 for i in range(n):
     print(f"*"*n)
-
+'''
 i=1
-n = 10
+n = 9
 while n!=1 :
     i+=1
     if n%2==0 :
         n=n//2
     else :
         n=n*3+1
-
+'''
 delta = lambda a,b,c : b**2-4*a*c
 
 def racine_2d(a,b,c) :
@@ -86,18 +86,3 @@ if __name__ == "__main__" :
     print(citron1)
     print(citron1.__dict__)
     '''
-chaine = "1, 2, 3, 5, 9, 12, -6, 3, 2, 101, 0, 5"
-def lire_csv(input_csv : str) -> list[list] :
-    retour = [[],[]]
-    for element in input_csv :
-        if element==',' or element==' '  :
-            continue
-        else :
-            conversion = int(element)
-            if len(retour[0])<0:
-                retour[0].append(conversion)
-            else:
-                retour[1].append(conversion)
-    return retour
-lire_csv(chaine)
-        
