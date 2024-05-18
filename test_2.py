@@ -7,13 +7,15 @@ def lire_csv(input_csv : str) -> list[list] :
 lire_csv(chaine)
 
 # question 2
-listeDoublon = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]
+ 	
+
+ma_liste = [5, 1, 1, 2, 5, 6, 3, 4, 4, 4, 2]
 def tri_unique(liste : list) -> list :
     rendreUnique : set = set(liste)
     nouvelleListe : list = list(rendreUnique)
     nouvelleListe.sort()
     return nouvelleListe
-listeDoublon=tri_unique(listeDoublon)
+listeDoublon=tri_unique(ma_liste)
 print(listeDoublon)
 '''Créez la classe Cercle, qui doit avoir comme attributs un rayon (un réel) et un centre (un tuple de réels), et implémente les méthodes suivantes :
 
@@ -22,6 +24,7 @@ print(listeDoublon)
     perimetre() calcule et renvoie le périmètre du cercle
     surface() renvoie la surface du cercle
     '''
+# question 3
 from math import*
 class Cercle :
     def __init__(self, centre : tuple,  rayon : float) -> None:
@@ -40,6 +43,7 @@ print("Le centre du cercle est :", cercle.getCentre())
 print("Son rayon est :", cercle.getRayon())
 print(f"Il a pour perimetre {cercle.perimetre()} et pour surface {cercle.surface()}")
 # question 4
+from math import*
 class Disque :
     def __init__(self, centre : tuple,  rayon : float) -> None:
         self.rayon = rayon
@@ -121,7 +125,7 @@ class Train:
         self.nb_wagons+=1
 
 
-    def supprime_wagon_de(self, contenu):
+    def supprime_wagon_de(self, contenu : str):
         """Supprime le premier wagon de {contenu}
         Renvoie False si ce train ne contient pas de {contenu},
         True si la suppression est effectuée
